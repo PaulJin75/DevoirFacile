@@ -1,13 +1,18 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "devoirfacile"; // Remplace par le nom de ta base de données
+    // Définition des constantes   
+    // pour le serveur local
+    define("local_serveur", "localhost");
+    define("local_username", "root");
+    define("local_password", "");
+    define("local_base", "devoirfacile");
 
-$conn = new mysqli($host, $user, $password, $dbname);
+    // Création de la connection
+    $ma_connexion = mysqli_connect(local_serveur, local_username, local_password, local_base);
 
-// Vérifier la connexion
-if ($conn->connect_error) {
-    die("Échec de connexion : " . $conn->connect_error);
-}
-?>
+    // Vérification de la réussite de la connection
+    if (!$ma_connexion) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+    else {
+        echo "Connected successfully <br>";
+    }

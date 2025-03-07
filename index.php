@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
   <head>
 
@@ -84,7 +84,7 @@ https://templatemo.com/tm-586-scholar
               <div class="header-text">
                 
                 <h2>Aide aux devoirs</h2>
-                <p>Je suis John Jin, auto-entrepreneur spécialisé dans le soutien scolaire en mathématiques et informatique. Je propose des cours personnalisés, adaptés à chaque niveau, du primaire au lycée, en visio ou en présentiel, selon tes préférences.</p>
+                <p>Je suis John Morel, auto-entrepreneur spécialisé dans le soutien scolaire en mathématiques et informatique. Je propose des cours personnalisés, adaptés à chaque niveau, du primaire au lycée, en visio ou en présentiel, selon tes préférences.</p>
                 <div class="buttons">
                   <div class="main-button">
                     
