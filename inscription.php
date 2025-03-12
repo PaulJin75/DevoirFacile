@@ -3,18 +3,38 @@ session_start();
 require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
+    $nom = $_POST['name'];
     $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hachage du mot de passe
+    $mot_de_passe = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     try {
-        $stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
-        $stmt->execute(['name' => $name, 'email' => $email, 'password' => $password]);
+        // Démarrer une transaction pour insérer dans deux tables
+        $pdo->beginTransaction();
+
+        // Insérer dans Utilisateurs
+        $stmt = $pdo->prepare("INSERT INTO Utilisateurs (Nom, Email) VALUES (:nom, :email)");
+        $stmt->execute(['nom' => $nom, 'email' => $email]);
+        $id_utilisateur = $pdo->lastInsertId(); // Récupérer l'ID généré
+
+        // Insérer dans Clients
+        $stmt = $pdo->prepare("INSERT INTO Clients (Nom, Email, Mot_passe, ID_utilisateurs) VALUES (:nom, :email, :mot_de_passe, :id_utilisateur)");
+        $stmt->execute([
+            'nom' => $nom,
+            'email' => $email,
+            'mot_de_passe' => $mot_de_passe,
+            'id_utilisateur' => $id_utilisateur
+        ]);
+
+        // Valider la transaction
+        $pdo->commit();
+
         $_SESSION['message'] = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
         header("Location: page2.php");
         exit();
     } catch (PDOException $e) {
-        $_SESSION['error'] = "Erreur : " . $e->getMessage();
+        // Annuler la transaction en cas d'erreur
+        $pdo->rollBack();
+        $_SESSION['error'] = "Erreur lors de l'inscription : " . $e->getMessage();
         header("Location: page2.php");
         exit();
     }
