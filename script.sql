@@ -1,22 +1,22 @@
 CREATE TABLE Utilisateurs (
     ID_utilisateurs INT PRIMARY KEY AUTO_INCREMENT,
-    Nom VARCHAR(),
-    Email VARCHAR()
+    Nom VARCHAR(30),
+    Email VARCHAR(60)
 );
 
 
 CREATE TABLE Administrateur (
     ID_Administrateur INT PRIMARY KEY AUTO_INCREMENT,
-    Nom_Administrateur VARCHAR(),
-    Mot_passe VARCHAR() 
+    Nom_Administrateur VARCHAR(50),
+    Mot_passe VARCHAR(60) 
 );
 
 
 CREATE TABLE Clients (
     ID_Clients INT PRIMARY KEY AUTO_INCREMENT,
-    Nom VARCHAR(),
-    Email VARCHAR(),
-    Mot_passe VARCHAR(),
+    Nom VARCHAR(30),
+    Email VARCHAR(50),
+    Mot_passe VARCHAR(60),
     ID_utilisateurs INT,
     FOREIGN KEY (ID_utilisateurs) REFERENCES Utilisateurs(ID_utilisateurs)
 );
@@ -24,31 +24,31 @@ CREATE TABLE Clients (
 
 CREATE TABLE Matières (
     ID_Matières INT PRIMARY KEY AUTO_INCREMENT,
-    Libelle_matières VARCHAR()
+    Libelle_matières VARCHAR(25)
 );
 
 
 CREATE TABLE Niveaux (
     ID_Niveaux INT PRIMARY KEY AUTO_INCREMENT,
-    Libelle_niveaux VARCHAR()
+    Libelle_niveaux VARCHAR(25)
 );
 
 
 CREATE TABLE États_cours (
     ID_États INT PRIMARY KEY AUTO_INCREMENT,
-    Libelle_États_cours VARCHAR()
+    Libelle_États_cours VARCHAR(25)
 );
 
 
 CREATE TABLE États_Paiements (
     ID_etat_paiements INT PRIMARY KEY AUTO_INCREMENT,
-    Libelle_états_Paiements VARCHAR()
+    Libelle_états_Paiements VARCHAR(25)
 );
 
 
 CREATE TABLE Disponibilités (
     ID_Disponibilités INT PRIMARY KEY AUTO_INCREMENT,
-    Libelle_Disponibilités VARCHAR()
+    Libelle_Disponibilités VARCHAR(25)
 );
 
 

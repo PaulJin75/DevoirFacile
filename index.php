@@ -202,7 +202,7 @@ https://templatemo.com/tm-586-scholar
   <footer>
     <div class="container">
       <div class="col-lg-12">
-        <p> &nbsp;&nbsp;&nbsp; <a href="https://templatemo.com" rel="nofollow" target="_blank"></a></p>
+      <p>&copy; 2025 DevoirFacile. Tous droits réservés.</p>
       </div>
     </div>
   </footer>
