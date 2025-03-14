@@ -3,7 +3,7 @@ CREATE TABLE Utilisateurs (
     ID_utilisateur INT PRIMARY KEY AUTO_INCREMENT,
     Nom VARCHAR(50),
     Email VARCHAR(100),
-    Mot_passe VARCHAR(60),
+    Mot_passe VARCHAR(255),
     Est_admin BOOLEAN DEFAULT FALSE -- TRUE pour admin, FALSE pour client
 );
 
