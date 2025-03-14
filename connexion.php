@@ -3,10 +3,15 @@ session_start();
 require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = strtolower(trim($_POST["email"]));
+    $email = strtolower(trim($_POST["email"])); 
     $mot_de_passe = $_POST["mot_de_passe"];
 
     try {
+     
+        echo "Email saisi : " . htmlspecialchars($email) . "<br>";
+        echo "Mot de passe saisi : " . htmlspecialchars($mot_de_passe) . "<br>";
+
+       
         $stmt = $pdo->prepare("SELECT * FROM Utilisateurs WHERE Email = :email");
         $stmt->execute(['email' => $email]);
         $utilisateur = $stmt->fetch();
@@ -17,8 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        $mot_de_passe_hache = $utilisateur["Mot_passe"];
-        $verif_mot_de_passe = password_verify($mot_de_passe, $mot_de_passe_hache);
+      
+        echo "Email dans la base : " . htmlspecialchars($utilisateur['Email']) . "<br>";
+        echo "Mot de passe haché dans la base : " . $utilisateur['Mot_passe'] . "<br>";
+
+      
+        $verif_mot_de_passe = password_verify($mot_de_passe, $utilisateur["Mot_passe"]);
+        echo "Résultat de password_verify : " . ($verif_mot_de_passe ? "Vrai" : "Faux") . "<br>";
 
         if ($verif_mot_de_passe) {
             $_SESSION['message'] = "Connexion réussie !";
