@@ -7,13 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mot_de_passe = $_POST["mot_de_passe"];
 
     try {
-        $stmt = $pdo->prepare("SELECT * FROM Clients WHERE Email = :email");
+        $stmt = $pdo->prepare("SELECT * FROM Utilisateurs WHERE Email = :email");
         $stmt->execute(['email' => $email]);
-        $client = $stmt->fetch(); // Récupérer une seule ligne
+        $utilisateur = $stmt->fetch(); // Récupérer une seule ligne
 
-        if ($client && password_verify($mot_de_passe, $client["Mot_passe"])) {
+        if ($utilisateur && password_verify($mot_de_passe, $utilisateur["Mot_passe"])) {
             $_SESSION['message'] = "Connexion réussie !";
-            $_SESSION['client_id'] = $client['ID_Clients']; // Stocker l'ID du client
+            $_SESSION['client_id'] = $utilisateur['ID_utilisateur']; // Utiliser ID_utilisateur
             header("Location: index.php");
             exit();
         } else {
