@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($verif_mot_de_passe) {
             $_SESSION['message'] = "Connexion réussie !";
             $_SESSION['client_id'] = $utilisateur['ID_utilisateur'];
-            header("Location: index.php");
+            header("Location: dashboard.php");
             exit();
         } else {
             $_SESSION['error'] = "Mot de passe incorrect pour l’email : " . htmlspecialchars($email);
