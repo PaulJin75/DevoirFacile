@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mot_de_passe = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // Vérifier si l’email est réservé à l’admin
-    if ($email === 'admin@devoirfacile.com') {
+    if ($email === 'jm@devoirfacile.com') {
         $_SESSION['error'] = "Cet email est réservé à l’administrateur.";
         header("Location: page2.php");
         exit();
