@@ -4,7 +4,7 @@ require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = strtolower(trim($_POST["email"])); 
-    $mot_de_passe = $_POST["mot_de_passe"];
+    $mot_de_passe = $_POST["password"];
 
     try {
      
