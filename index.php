@@ -63,7 +63,6 @@ https://templatemo.com/tm-586-scholar
                       <li class="scroll-to-section"><a href="#services">Services</a></li>
                       <li class="scroll-to-section"><a href="#contact">contact</a></li>
                       <li class="scroll-to-section"><a href="page2.php">se connecter</a></li>
-                       <li class="scroll-to-section"><a href="logout.php">Se déconnecter</a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
