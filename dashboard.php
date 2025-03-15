@@ -35,7 +35,7 @@ $utilisateur = $stmt->fetch();
             <h2>Dashboard Administrateur</h2>
 
             <h3>Ajouter une disponibilité</h3>
-            <form action="ajouter_disponibilite.php" method="POST">
+            <form action="ajout_dispo.php" method="POST">
                 <label>Date et heure :</label>
                 <input type="datetime-local" name="date_heure" required>
                 <input type="submit" value="Ajouter">
@@ -72,7 +72,7 @@ $utilisateur = $stmt->fetch();
             <h2>Dashboard Client</h2>
 
             <h3>Réserver un cours</h3>
-            <form action="reserver.php" method="POST">
+            <form action="reservation.php" method="POST">
                 <label>Niveau :</label>
                 <select name="id_niveau" required>
                     <?php

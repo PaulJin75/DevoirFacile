@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute(['cours' => $id_cours]);
 
         // Rediriger vers la page de paiement
-        header("Location: paypal_payment.php?cours_id=$id_cours");
+        header("Location: paypal_paiements.php?cours_id=$id_cours");
         exit();
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
