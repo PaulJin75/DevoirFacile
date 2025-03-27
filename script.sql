@@ -4,7 +4,7 @@ CREATE TABLE Utilisateurs (
     Nom VARCHAR(50),
     Email VARCHAR(100),
     Mot_passe VARCHAR(255),
-    Est_admin BOOLEAN DEFAULT FALSE -- TRUE pour admin, FALSE pour client
+    Est_admin BOOLEAN DEFAULT FALSE 
 );
 
 
@@ -28,7 +28,7 @@ CREATE TABLE Disponibilites (
 
 CREATE TABLE Cours (
     ID_cours INT PRIMARY KEY AUTO_INCREMENT,
-    Tarif DECIMAL(10,2),
+    Tarif TINYINT,
     ID_client INT,
     ID_matiere INT,
     ID_niveau INT,

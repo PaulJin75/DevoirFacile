@@ -2,7 +2,7 @@
 // Définition des constantes
 define("LOCAL_SERVEUR", "localhost");
 define("LOCAL_USERNAME", "root");
-define("LOCAL_PASSWORD", "");
+define("LOCAL_PASSWORD", "motdepassesqlpourroot");
 define("LOCAL_BASE", "devoirfacile");
 
 try {
