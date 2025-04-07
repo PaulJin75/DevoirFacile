@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = strtolower(trim($_POST['email']));
     $mot_de_passe = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    // Vérifier si l’email est réservé à l’admin
     if ($email === 'jm@devoirfacile.com') {
         $_SESSION['error'] = "Cet email est réservé à l’administrateur.";
         header("Location: page2.php");
@@ -15,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        // Vérifier si l’email existe déjà
         $stmt = $pdo->prepare("SELECT COUNT(*) FROM Utilisateurs WHERE Email = :email");
         $stmt->execute(['email' => $email]);
         if ($stmt->fetchColumn() > 0) {
@@ -24,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        // Insérer l’utilisateur (non-admin par défaut)
         $stmt = $pdo->prepare("INSERT INTO Utilisateurs (Nom, Email, Mot_passe, Est_admin) VALUES (:nom, :email, :mot_de_passe, FALSE)");
         $stmt->execute([
             'nom' => $nom,

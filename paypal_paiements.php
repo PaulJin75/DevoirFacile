@@ -2,7 +2,7 @@
 session_start();
 require_once 'config.php';
 
-// Vérifier si un cours_id est fourni
+
 if (!isset($_GET['cours_id'])) {
     header("Location: dashboard.php");
     exit();
@@ -10,7 +10,7 @@ if (!isset($_GET['cours_id'])) {
 
 $cours_id = $_GET['cours_id'];
 
-// Récupérer les détails du cours réservé par le client connecté
+
 $stmt = $pdo->prepare("
     SELECT c.*, m.Libelle_matiere, n.Libelle_niveau, d.Date_heure 
     FROM Cours c 

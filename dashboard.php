@@ -31,7 +31,6 @@ $utilisateur = $stmt->fetch();
         <h1>Bienvenue, <?php echo htmlspecialchars($utilisateur['Nom']); ?> !</h1>
 
         <?php if ($utilisateur['Est_admin']) { ?>
-            <!-- Dashboard Admin -->
             <h2>Dashboard Administrateur</h2>
 
             <h3>Ajouter une disponibilité</h3>
@@ -68,7 +67,6 @@ $utilisateur = $stmt->fetch();
             ?>
 
         <?php } else { ?>
-            <!-- Dashboard Client -->
             <h2>Dashboard Client</h2>
 
             <h3>Réserver un cours</h3>
